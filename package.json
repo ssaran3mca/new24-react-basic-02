@@ -1,0 +1,26 @@
+{
+  "name": "saravanan",
+  "version": "1.0.0",
+  "description": "baic start bigining ",
+  "scripts": {
+    "start": "parcel index01-part01.html",
+    "build": "parcel build index01-part01.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssaran3mca/new24-react-basic-02/blob/main/app.js"
+  },
+  "author": "sarav",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.12.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10",
+    "webpack-cli": "^5.1.4"
+  }
+}
