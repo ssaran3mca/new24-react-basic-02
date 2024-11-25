@@ -115,3 +115,61 @@ img.sub-page-image {
 .fa-dot-circle-o.red:before {
   color: red;
 }
+.menu-withpromtedlable .col-sm-3 {
+  width: 100%;
+}
+.menu-withpromtedlable {
+  position: relative;
+}
+
+label.promoter {
+  position: absolute;
+  top: 26px;
+  box-sizing: border-box;
+  background-color: rgb(241, 92, 82);
+  background-image: linear-gradient(
+    277.71deg,
+    rgb(237, 69, 109) 7.8%,
+    rgb(243, 111, 69) 83.03%
+  );
+  border-radius: 4px 8px 8px 4px;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  min-height: 37px;
+  z-index: 1;
+  color: #fff;
+  font-weight: 800;
+}
+.menu-swiggy a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.col-sm-3.menu-swiggy:hover {
+  transform: scale(0.95, 0.95);
+  transform-origin: center center;
+  transition: 0.1s ease-in;
+}
+
+.arrow {
+  font-size: 28px;
+  text-align: center;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.sub-page .col-sm-6,
+.sub-page .col-sm-2,
+.sub-page .col-sm-1,
+.sub-page .col-sm-7 {
+  background: #fbfbfb;
+}
+.sub-page h5 {
+  padding: 10px 5px;
+}
+.sub-page .col-sm-6 {
+  padding-left: 35px;
+}

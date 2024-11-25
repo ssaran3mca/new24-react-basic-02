@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDom from "react-dom/client";
 // import Menu from "./component/Menu";
 // import Body from "./component/Body";
@@ -7,6 +7,7 @@ import ErrorPage from "./component/ErrorPage";
 import Subres from "./component/Subres";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import UserContext from "./utils/UserContext";
 
 const Menu = lazy(() => import("./component/Menu"));
 const About = lazy(() => import("./component/About"));
@@ -14,13 +15,24 @@ const Body = lazy(() => import("./component/Body"));
 const Contact = lazy(() => import("./component/Contact"));
 
 const LayoutSwiggy = () => {
+  const [userNmae, setUserName] = useState();
+  useEffect(() => {
+    const data = {
+      name: "sivasamy saroja",
+    };
+
+    setUserName(data.name);
+  }, []);
   return (
-    <div>
-      <Suspense fallback={<h1>menu</h1>}>
-        <Menu />
-      </Suspense>
-      <Outlet />
-    </div>
+    <UserContext.Provider value={{ logInUser: userNmae, setUserName }}>
+      <div>
+        <Suspense fallback={<h1>menu</h1>}>
+          <Menu />
+        </Suspense>
+
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

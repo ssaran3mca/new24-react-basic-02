@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import resList from "../utils/mockData";
-import Restorent from "./Restorent";
+import Restorent, { withPromtedLable } from "./Restorent";
 import Shimmer from "./Shimmer";
 import { API_RES } from "../utils/contents";
-import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 const Body = () => {
   const [listofRestorent, setListofRestorent] = useState([]);
   const [fliterlist, setfliterlist] = useState([]);
 
-  const [searchList, setSearchList] = useState("");
   // whenever state variables update, react trigger a reconciliation cycle (re ernder the component )
+
+  const RestorentPromoted = withPromtedLable(Restorent);
+  const [searchList, setSearchList] = useState("");
+  const { setUserName, logInUser } = useContext(UserContext);
   useEffect(() => {
     fetchdata();
   }, []);
@@ -19,10 +22,12 @@ const Body = () => {
 
     setListofRestorent(
       // Optional Chaning
-      json.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants
+      json.data?.cards[1].card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || {}
     );
     setfliterlist(
-      json.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants
+      json.data?.cards[1].card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || {}
     );
   };
 
@@ -77,15 +82,31 @@ const Body = () => {
           Filter
         </button>
       </form>
-
+      <div>
+        <input
+          className="form-control me-2"
+          value={logInUser}
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
+        />
+        <p> {logInUser}</p>
+      </div>
       {listofRestorent.length === 0 ? (
         <Shimmer />
       ) : (
         <div>
           <div className="row">
-            {listofRestorent?.map((restorent) => (
-              <Restorent key={restorent.info.id} resdata={restorent} />
-            ))}
+            {listofRestorent?.map((restorent) =>
+              restorent.info.aggregatedDiscountInfoV3 ? (
+                <RestorentPromoted
+                  key={restorent.info.id}
+                  resdata={restorent}
+                />
+              ) : (
+                <Restorent key={restorent.info.id} resdata={restorent} />
+              )
+            )}
           </div>
         </div>
       )}

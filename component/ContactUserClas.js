@@ -4,7 +4,7 @@ class ContactUserClas extends Component {
     super(props);
     this.state = {
       infoData: {
-        identifier: "empty",
+        siteTitle: "empty",
         timeZone: "sss",
       },
     };
@@ -33,13 +33,13 @@ class ContactUserClas extends Component {
   }
   render() {
     // console.log(this.props.name + "Child render");
-    const { identifier, timeZone } = this.state.infoData || {};
+    const { siteTitle, timeZone } = this.state.infoData || {};
 
     return (
       <div>
         <h4>Class name </h4>
 
-        <p>Identifier : {identifier}</p>
+        <p>Site Title : {siteTitle}</p>
         <p>TimeZone : {timeZone}</p>
         <button
           className="btn btn-primary mb-4"
