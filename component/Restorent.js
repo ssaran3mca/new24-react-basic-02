@@ -33,8 +33,6 @@ export const withPromtedLable = (Restorent) => {
           <span className="me-2">{aggregatedDiscountInfoV3.header}</span>
           {aggregatedDiscountInfoV3.subHeader}
         </label>
-        {/* {console.log(props.resdata.info.aggregatedDiscountInfoV3)} */}
-
         <Restorent {...props} />
       </div>
     );

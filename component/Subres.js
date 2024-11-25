@@ -20,7 +20,7 @@ const Subres = () => {
     setShowItema((prev) => (prev === index ? null : index)); // Toggle the state
   };
   const [showIteam, setShowItema] = useState(0);
-  console.log(catItemCards);
+  // console.log(catItemCards);
   return resInfo === null ? (
     <Shimmer />
   ) : (

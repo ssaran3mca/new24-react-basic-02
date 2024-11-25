@@ -31,6 +31,7 @@ const Body = () => {
     );
   };
 
+  const [score, setscore] = useState();
   // conditional rendering
   // if (listofRestorent.length === 0) {
   //   return <Shimmer />;
@@ -107,6 +108,10 @@ const Body = () => {
                 <Restorent key={restorent.info.id} resdata={restorent} />
               )
             )}
+            <div className="p-5 m-5">
+              <input value={score} onChange={(e) => setscore(e.target.value)} />
+              {score > 90 ? "A" : score > 75 ? "B" : "C"}
+            </div>
           </div>
         </div>
       )}

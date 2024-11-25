@@ -8,6 +8,9 @@ import Subres from "./component/Subres";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./component/cart";
 
 const Menu = lazy(() => import("./component/Menu"));
 const About = lazy(() => import("./component/About"));
@@ -24,15 +27,17 @@ const LayoutSwiggy = () => {
     setUserName(data.name);
   }, []);
   return (
-    <UserContext.Provider value={{ logInUser: userNmae, setUserName }}>
-      <div>
-        <Suspense fallback={<h1>menu</h1>}>
-          <Menu />
-        </Suspense>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ logInUser: userNmae, setUserName }}>
+        <div>
+          <Suspense fallback={<h1>menu</h1>}>
+            <Menu />
+          </Suspense>
 
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -62,6 +67,14 @@ const appRoute = createBrowserRouter([
         element: (
           <Suspense fallback={<h1>Loaing</h1>}>
             <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          <Suspense fallback={<h1>menu</h1>}>
+            <Cart />
           </Suspense>
         ),
       },

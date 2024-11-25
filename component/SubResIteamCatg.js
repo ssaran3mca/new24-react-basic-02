@@ -1,8 +1,15 @@
+import { useDispatch } from "react-redux";
 import { IMG_PRODUCT } from "../utils/contents";
-const SubResIteamCatg = (data) => {
+import { addIteam } from "../utils/cardSlice";
+const SubResIteamCatg = ({ data, datas }) => {
+  console.log({ datas });
+  const dispatch = useDispatch();
+  const handleClick = (items) => {
+    dispatch(addIteam(items));
+  };
   return (
     <div>
-      {data?.data?.itemCards?.map((items) => (
+      {data.map((items) => (
         <div className=" row justify-content-center  " key={items.card.info.id}>
           <div className="col-sm-6">
             <h6>
@@ -25,7 +32,9 @@ const SubResIteamCatg = (data) => {
               />
               <div className="hNNDEj">
                 <div className="addbtn">
-                  <p className="addbtn-in">Add </p>
+                  <p className="addbtn-in" onClick={() => handleClick(items)}>
+                    Add{" "}
+                  </p>
                 </div>
               </div>
             </div>

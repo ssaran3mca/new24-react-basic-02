@@ -6,7 +6,7 @@ const SubResIteam = ({ data, showIteam, setShowItema }) => {
   };
   return (
     <div>
-      <div className="container mt-3 sub-page">
+      <div className="container mt-5 sub-page">
         <div
           className=" row justify-content-center cursor-pointer"
           onClick={handleClick}
@@ -20,7 +20,9 @@ const SubResIteam = ({ data, showIteam, setShowItema }) => {
             <i className="fa fa-angle-up" aria-hidden="true"></i>
           </div>
         </div>
-        {showIteam && <SubResIteamCatg data={data} />}
+        {showIteam && (
+          <SubResIteamCatg data={data?.itemCards} datas={data?.itemCards} />
+        )}
       </div>
     </div>
   );

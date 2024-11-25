@@ -173,3 +173,11 @@ label.promoter {
 .sub-page .col-sm-6 {
   padding-left: 35px;
 }
+p,
+h1,
+h2,
+h4,
+h5,
+h6 {
+  cursor: default;
+}

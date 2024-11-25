@@ -3,12 +3,16 @@ import { CUN_URL } from "../utils/contents";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 const Menu = () => {
   const [logInOut, setInOut] = useState("Login");
   const online = useOnline();
 
   const userDetails = useContext(UserContext);
   // console.log(userDetails.logInUser);
+
+  const cartItem = useSelector((store) => store.cart.iteams);
+  console.log(cartItem);
   return (
     <nav className="navbar navbar-expand-sm  menu-swiggy">
       <div className="container-fluid">
@@ -56,6 +60,11 @@ const Menu = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/contact">
                   Contact
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/cart">
+                  Cart( {cartItem.length} - iteam)
                 </Link>
               </li>
               <li className="nav-item">
