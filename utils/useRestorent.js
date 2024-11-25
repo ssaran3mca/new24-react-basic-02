@@ -9,7 +9,6 @@ const useRestorent = (resId) => {
     const data = await fetch(API_SUBRES + resId.resId);
     const json = await data.json();
     setResInfo(json.data);
-    console.log(resId);
   };
   return reInfo;
 };
