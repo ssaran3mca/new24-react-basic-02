@@ -11,7 +11,7 @@ const Menu = () => {
   const userDetails = useContext(UserContext);
   // console.log(userDetails.logInUser);
 
-  const cartItem = useSelector((store) => store.cart.iteams);
+  const cartItem = useSelector((mystore) => mystore.carts.iteams);
   console.log(cartItem);
   return (
     <nav className="navbar navbar-expand-sm  menu-swiggy">

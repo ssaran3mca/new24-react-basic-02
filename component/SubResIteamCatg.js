@@ -33,7 +33,7 @@ const SubResIteamCatg = ({ data, datas }) => {
               <div className="hNNDEj">
                 <div className="addbtn">
                   <p className="addbtn-in" onClick={() => handleClick(items)}>
-                    Add{" "}
+                    Add
                   </p>
                 </div>
               </div>

@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import SubResIteamCatg from "./SubResIteamCatg";
-import { clearIteam } from "../utils/cardSlice";
+import { removeIteam } from "../utils/cardSlice";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const cartItem = useSelector((store) => store.cart.iteams);
+  const cartItem = useSelector((store) => store.carts.iteams);
   //   console.log(cartItem);
 
   const dispatch = useDispatch();
   const hadleClick = () => {
-    dispatch(clearIteam());
+    dispatch(removeIteam());
   };
   return (
     <div className=" mt-3 sub-page">
@@ -27,7 +27,6 @@ const Cart = () => {
           <SubResIteamCatg data={cartItem} />
         ) : (
           <h3 className="mt-3 text-center">
-            {" "}
             Go to page
             <Link className="nav-link" to="/">
               Home

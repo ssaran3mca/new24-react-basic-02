@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const cardSlice = createSlice({
-  name: "cart",
+  name: "carts",
   initialState: {
     iteams: [],
   },
